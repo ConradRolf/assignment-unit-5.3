@@ -1,26 +1,51 @@
 console.log('***** Music Collection *****')
 
 let collection = []
-
-function addToCollection(title, artist, release) {
+// creating an array called 'collection'
+function addToCollection(title, artist, yearPublished) {
     let album = {
-        title, artist, release
+        'title': title, 
+        'artist': artist, 
+        'yearPublished': yearPublished
+    
     }
-    collection.push(album);
+    console.log(album);
     return album;
 }
-addToCollection('American Idiot (Deluxe)', 'Green Day', '2004')
-console.log(collection[0])
-addToCollection('Sleeptalk', 'Dayseeker', '2019')
-addToCollection('Dark Sun', 'Dayseeker', '2022')
-addToCollection('When Life Gives You Lemons, You Paint That Shit Gold', 'Atmosphere', '2008')
-addToCollection('Doom OST', 'Mick Gordan', '2016')
-addToCollection('beerbongs & bentleys', 'Post Malone', '2018')
-addToCollection('Stoney (Deluxe)', 'Post Malone', '2016')
 
-function showCollection(){
+// creating a function that will take input parameters and create an 'album' to be put into 'collection'
+collection.push(addToCollection('American Idiot (Deluxe)', 'Green Day', '2004'))
+collection.push(addToCollection('Sleeptalk', 'Dayseeker', '2019'))
+collection.push(addToCollection('Dark Sun', 'Dayseeker', '2022'))
+collection.push(addToCollection('When Life Gives You Lemons, You Paint That Shit Gold', 'Atmosphere', '2008'))
+collection.push(addToCollection('Doom OST', 'Mick Gordan', '2016'))
+collection.push(addToCollection('beerbongs & bentleys', 'Post Malone', '2018'))
+collection.push(addToCollection('Stoney (Deluxe)', 'Post Malone', '2016'))
+// adding 'albums' into the 'collection'
+console.log(collection);
+
+function showCollection() {
+    
     for (i in collection)
-        console.log(album.title, 'by', album.artist, 'published in', album.release[i])
+    console.log(collection[i].title, 'by', collection[i].artist + ', published in', collection[i].yearPublished)
 }
 showCollection();
-console.log(collection);
+
+// name is where to input the artist name
+let results = []
+function findByArtist( name ) {
+    let artistFound = false
+    for (i in collection)
+        if (collection[i].artist === name) {
+            console.log('Artist Found.')
+            results.push(collection[i])
+            artistFound = true
+        }
+    if (!artistFound)
+        console.log('Artist not found.')
+
+}
+findByArtist('Green Day')
+findByArtist('Post Malone')
+findByArtist('Hannibal Lecter')
+console.log(results)
