@@ -12,8 +12,8 @@ function addToCollection(title, artist, yearPublished) {
     console.log(album);
     return album;
 }
-
 // creating a function that will take input parameters and create an 'album' to be put into 'collection'
+
 collection.push(addToCollection('American Idiot (Deluxe)', 'Green Day', '2004'))
 collection.push(addToCollection('Sleeptalk', 'Dayseeker', '2019'))
 collection.push(addToCollection('Dark Sun', 'Dayseeker', '2022'))
@@ -30,6 +30,7 @@ function showCollection() {
     console.log(collection[i].title, 'by', collection[i].artist + ', published in', collection[i].yearPublished)
 }
 showCollection();
+// the above function searches through the collection taking out each individual part of each 'album' and outputs it to the console log
 
 // name is where to input the artist name
 let results = []
@@ -37,15 +38,17 @@ function findByArtist( name ) {
     let artistFound = false
     for (i in collection)
         if (collection[i].artist === name) {
-            console.log('Artist Found.')
+            console.log('I was able to find,', name, 'in your collection.')
             results.push(collection[i])
             artistFound = true
         }
     if (!artistFound)
-        console.log('Artist not found.')
+        console.log('I was not able to find anything by', name, 'in your collection.')
 
 }
+// the above function searches against the collection to find a certain artist and then tells you whether or not they are in your collection.
 findByArtist('Green Day')
 findByArtist('Post Malone')
 findByArtist('Hannibal Lecter')
 console.log(results)
+// this statement will output the results matching your search after they are added into the 'results' array
